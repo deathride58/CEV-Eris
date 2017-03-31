@@ -37,6 +37,7 @@ var/const/company_short = "NT"
 var/game_version        = "Baystation12"
 var/changelog_hash      = ""
 var/game_year           = (text2num(time2text(world.realtime, "YYYY")) + 544)
+var/global/current_date_string =  "[num2text(rand(1,31))] [pick("January","February","March","April","May","June","July","August","September","October","November","December")], [game_year]"
 
 var/round_progressing = 1
 var/master_mode       = "extended" // "extended"
