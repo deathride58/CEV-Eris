@@ -8,6 +8,11 @@
 	var/uid
 	var/tmp/camera_id = 0 // For automatic c_tag setting
 
+	//holomap stuff
+	var/holomap_color = null
+	var/holomap_marker = null
+	var/list/holomap_filter = list()
+
 /area/New()
 	icon_state = ""
 	layer = 10
