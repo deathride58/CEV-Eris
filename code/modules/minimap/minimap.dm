@@ -1,5 +1,3 @@
-
-
 #define MAP_PATH "maps"
 #define MAP_FILE "CEV_Eris-1.dmm"
 
