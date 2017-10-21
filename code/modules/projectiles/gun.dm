@@ -199,6 +199,19 @@
 
 	//actually attempt to shoot
 	var/turf/targloc = get_turf(target) //cache this in case target gets deleted during shooting, e.g. if it was a securitron that got destroyed.
+	if(istype(target, /mob/shadow))
+		var/mob/shadow/shadow = target
+		while(istype(shadow))
+			shadow = shadow.owner
+		target = shadow
+		targloc = get_turf(target)
+	else if(istype(target, /turf/simulated/openspace))
+		var/turf/simulated/openspace/OS = target
+		while(istype(OS) && OS.open)
+			OS = OS.below
+		target = OS
+		targloc = OS
+
 	for(var/i in 1 to burst)
 		var/obj/projectile = consume_next_projectile(user)
 		if(!projectile)
@@ -309,6 +322,14 @@
 	//Accuracy modifiers
 	P.accuracy = accuracy + acc_mod
 	P.dispersion = dispersion
+
+	//accuracy bonus from hight
+	var/turf/targetloc = get_turf(target)
+	var/turf/selfloc = get_turf(src)
+	if(selfloc.z > targetloc.z)
+		P.accuracy += 1
+	else (selfloc.z < targetloc.z)
+		P.accuracy -= 1
 
 	//accuracy bonus from aiming
 	if (aim_targets && (target in aim_targets))

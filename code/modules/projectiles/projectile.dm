@@ -23,6 +23,8 @@
 	var/def_zone = ""	//Aiming at
 	var/mob/firer = null//Who shot it
 	var/silenced = 0	//Attack message
+	var/z_step = null
+	var/z_dir = null
 	var/yo = null
 	var/xo = null
 	var/current = null
@@ -324,6 +326,13 @@
 	current = startloc
 	yo = targloc.y - startloc.y + y_offset
 	xo = targloc.x - startloc.x + x_offset
+	var/delta_z = starting.z - current.z
+	if(delta_z)
+		z_step = round(get_dist(starting, current)/abs(delta_z))
+		if(delta_z > 0)
+			z_dir = UP
+		else
+			z_dir = down
 
 	// trajectory dispersion
 	var/offset = 0
