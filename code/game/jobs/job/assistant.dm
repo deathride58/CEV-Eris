@@ -19,3 +19,8 @@
 		return list(access_maint_tunnels)
 	else
 		return list()
+
+/obj/landmark/join/start/assistant
+	name = "Assistant"
+	icon_state = "player-grey"
+	join_tag = /datum/job/assistant

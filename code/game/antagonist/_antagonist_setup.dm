@@ -51,7 +51,8 @@ var/global/list/antag_weights = list()
 
 /proc/get_antag_instance(var/a_id)
 	if(antag_types[a_id])
-		return new antag_types[a_id]
+		var/atype = antag_types[a_id]
+		return new atype
 
 /proc/make_antagonist_ghost(var/mob/M, var/a_id)
 	if(antag_types[a_id])
@@ -87,7 +88,7 @@ var/global/list/antag_weights = list()
 		if(A.outer)
 			outer_antag_types[A.id] = antag_type
 			var/list/start_locs = list()
-			for(var/obj/effect/landmark/L in landmarks_list)
+			for(var/obj/landmark/L in landmarks_list)
 				if(L.name == A.landmark_id)
 					start_locs |= get_turf(L)
 			antag_starting_locations[A.id] = start_locs
@@ -111,6 +112,12 @@ var/global/list/antag_weights = list()
 /proc/player_is_antag(var/datum/mind/player, var/only_offstation_roles = FALSE)
 	for(var/datum/antagonist/antag in player.antagonist)
 		if((antag.outer && only_offstation_roles) || !only_offstation_roles)
+			return TRUE
+	return FALSE
+
+/proc/player_is_ship_antag(var/datum/mind/player)
+	for(var/datum/antagonist/antag in player.antagonist)
+		if(!antag.outer)
 			return TRUE
 	return FALSE
 

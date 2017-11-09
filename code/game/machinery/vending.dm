@@ -952,7 +952,7 @@
 	icon_state = "engivend"
 	icon_deny = "engivend-deny"
 	req_access = list(access_engine_equip)
-	products = list(/obj/item/clothing/glasses/meson = 2,/obj/item/device/multitool = 4,/obj/item/weapon/airlock_electronics = 10,/obj/item/weapon/module/power_control = 10,/obj/item/weapon/airalarm_electronics = 10,/obj/item/weapon/cell/large/high = 10)
+	products = list(/obj/item/clothing/glasses/meson = 2,/obj/item/device/multitool = 4,/obj/item/weapon/airlock_electronics = 10,/obj/item/weapon/circuitboard/apc = 10,/obj/item/weapon/airalarm_electronics = 10,/obj/item/weapon/cell/large/high = 10)
 	contraband = list(/obj/item/weapon/cell/large/potato = 3)
 	premium = list(/obj/item/weapon/storage/belt/utility = 3)
 
@@ -1013,7 +1013,7 @@
 	prices = list(/obj/item/weapon/book/ritual/cruciform = 500, /obj/item/weapon/storage/fancy/candle_box = 200, /obj/item/weapon/implant/external/core_implant/cruciform = 1000)
 
 /obj/machinery/vending/powermat
-	name = "Asters Guild Power-Mat."
+	name = "Asters Guild Power-Mat"
 	desc = "Trust is power, and there’s no power you can trust like Robustcell."
 	product_slogans = "Trust is power, and there’s no power you can trust like Robustcell.;No battery is stronger longer.;One that Last!;You can't top the copper top!"
 	product_ads = "Robust!;Trustworthy!;Durable!"

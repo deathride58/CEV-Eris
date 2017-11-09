@@ -46,6 +46,11 @@
 		/obj/item/weapon/storage/backpack/satchel
 		)
 
+/obj/landmark/join/start/chief_engineer
+	name = "Technomancer Exultant"
+	icon_state = "player-orange-officer"
+	join_tag = /datum/job/chief_engineer
+
 
 /datum/job/technomancer
 	title = "Technomancer"
@@ -82,3 +87,8 @@
 		/obj/item/weapon/storage/backpack/satchel_eng,\
 		/obj/item/weapon/storage/backpack/satchel
 		)
+
+/obj/landmark/join/start/technomancer
+	name = "Technomancer"
+	icon_state = "player-orange"
+	join_tag = /datum/job/technomancer

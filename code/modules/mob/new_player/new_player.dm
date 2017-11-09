@@ -112,10 +112,10 @@
 
 			observer.started_as_observer = 1
 			close_spawn_windows()
-			var/obj/O = locate("landmark*Observer-Start")
+			var/obj/O = locate("observer-spawn")
 			if(istype(O))
-				src << "<span class='notice'>Now teleporting.</span>"
-				observer.loc = O.loc
+				src << "<span class='notice'>You are observer now.</span>"
+				observer.forceMove(O.loc)
 			else
 				src << "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>"
 			observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
@@ -175,7 +175,7 @@
 			src << alert("Your current species, [client.prefs.species], is not available for play on the station.")
 			return 0
 
-		AttemptLateSpawn(href_list["SelectedJob"],client.prefs.spawnpoint)
+		AttemptLateSpawn(href_list["SelectedJob"], client.prefs.spawnpoint)
 		return
 
 	if(!ready && href_list["preference"])

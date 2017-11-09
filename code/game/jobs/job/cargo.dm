@@ -28,6 +28,11 @@
 	hand = /obj/item/weapon/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
+/obj/landmark/join/start/merchant
+	name = "Guild Merchant"
+	icon_state = "player-beige-officer"
+	join_tag = /datum/job/merchant
+
 
 
 /datum/job/cargo_tech
@@ -49,6 +54,10 @@
 	pda = /obj/item/device/pda/cargo
 	ear = /obj/item/device/radio/headset/headset_cargo
 
+/obj/landmark/join/start/cargo_tech
+	name = "Guild Technician"
+	icon_state = "player-beige"
+	join_tag = /datum/job/cargo_tech
 
 
 /datum/job/mining
@@ -76,3 +85,7 @@
 		/obj/item/weapon/storage/bag/ore
 		)
 
+/obj/landmark/join/start/mining
+	name = "Guild Miner"
+	icon_state = "player-beige"
+	join_tag = /datum/job/mining

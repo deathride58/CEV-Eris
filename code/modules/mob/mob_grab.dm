@@ -170,6 +170,8 @@
 //Updating pixelshift, position and direction
 //Gets called on process, when the grab gets upgraded or the assailant moves
 /obj/item/weapon/grab/proc/adjust_position()
+	if(!affecting)
+		return
 	if(affecting.buckled)
 		animate(affecting, pixel_x = 0, pixel_y = 0, 4, 1, LINEAR_EASING)
 		return
@@ -230,9 +232,9 @@
 		if(!allow_upgrade)
 			return
 		if(!affecting.lying)
-			assailant.visible_message(SPAN_WARNING("[assailant] has grabbed [affecting] aggressively (now hands)!"))
+			assailant.visible_message(SPAN_WARNING("[assailant] has grabbed [affecting] aggressively!"))
 		else
-			assailant.visible_message(SPAN_WARNING("[assailant] pins [affecting] down to the ground (now hands)!"))
+			assailant.visible_message(SPAN_WARNING("[assailant] pins [affecting] down to the ground!"))
 			apply_pinning(affecting, assailant)
 
 		state = GRAB_AGGRESSIVE
@@ -243,7 +245,7 @@
 			assailant << SPAN_NOTICE("You squeeze [affecting], but nothing interesting happens.")
 			return
 
-		assailant.visible_message(SPAN_WARNING("[assailant] has reinforced \his grip on [affecting] (now neck)!"))
+		assailant.visible_message(SPAN_WARNING("[assailant] grabs [affecting] neck!"))
 		state = GRAB_NECK
 		icon_state = "grabbed+1"
 		assailant.set_dir(get_dir(assailant, affecting))

@@ -81,10 +81,7 @@
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/head/HoS(src)
 		new /obj/item/clothing/suit/armor/vest/security(src)
-		new /obj/item/clothing/under/rank/ih_commander/jensen(src)
-		new /obj/item/clothing/suit/armor/hos/jensen(src)
 		new /obj/item/clothing/suit/armor/hos(src)
-		new /obj/item/clothing/head/HoS/dermal(src)
 		new /obj/item/weapon/cartridge/hos(src)
 		new /obj/item/device/radio/headset/heads/hos(src)
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
@@ -96,6 +93,9 @@
 		new /obj/item/ammo_magazine/mg/cl44/rubber(src)
 		new /obj/item/ammo_magazine/mg/cl44/rubber(src)
 		new /obj/item/ammo_magazine/mg/cl44/rubber(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/gun/energy/gun/martin(src)
 		new /obj/item/clothing/accessory/holster/waist(src)
 		new /obj/item/weapon/melee/telebaton(src)
 		new /obj/item/clothing/head/beret/sec/navy/hos(src)
@@ -121,7 +121,6 @@
 		new /obj/item/weapon/storage/backpack/satchel_sec(src)
 		new /obj/item/clothing/suit/armor/vest/security(src)
 		new /obj/item/clothing/under/rank/warden(src)
-		new /obj/item/clothing/suit/armor/vest/serg(src)
 		new /obj/item/clothing/head/warden(src)
 		new /obj/item/weapon/cartridge/security(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
@@ -134,6 +133,9 @@
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/gun/energy/gun/martin(src)
 		new /obj/item/weapon/storage/box/holobadge(src)
 		new /obj/item/clothing/head/beret/sec/navy/warden(src)
 		new /obj/item/clothing/accessory/badge/warden(src)
@@ -164,44 +166,44 @@
 		new /obj/item/clothing/glasses/sunglasses/sechud(src)
 		new /obj/item/taperoll/police(src)
 		new /obj/item/device/hailer(src)
-		new /obj/item/clothing/accessory/storage/black_vest(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/cell/small/high(src)
+		new /obj/item/weapon/gun/energy/gun/martin(src)
+		new /obj/item/weapon/gun/projectile/shotgun/bull(src)
+		new /obj/item/weapon/storage/box/shotgunammo/beanbags(src)
+		new /obj/item/weapon/storage/box/shotgunammo/beanbags(src)
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
 		new /obj/item/ammo_magazine/SMG_sol/rubber(src)
 		return
 
 
-/obj/structure/closet/secure_closet/security/cargo
+
+/obj/structure/closet/secure_closet/medspec
+	name = "Ironhammer Medical Specialist locker"
+	req_access = list(access_medspec)
+	icon_state = "sec1"
+	icon_closed = "sec"
+	icon_locked = "sec1"
+	icon_opened = "secopen"
+	icon_broken = "secbroken"
+	icon_off = "secoff"
 
 	New()
 		..()
-		new /obj/item/clothing/accessory/armband/cargo(src)
-		new /obj/item/device/encryptionkey/headset_cargo(src)
+		new /obj/item/clothing/glasses/sunglasses/sechud(src)
+		new /obj/item/taperoll/police(src)
+		new /obj/item/clothing/under/rank/medspec(src)
+		new /obj/item/device/pda/detective(src)
+		new /obj/item/device/radio/headset/headset_sec(src)
+		new /obj/item/clothing/shoes/reinforced(src)
+		new /obj/item/clothing/gloves/thick(src)
+		new /obj/item/clothing/suit/storage/toggle/labcoat/medspec(src)
+		new /obj/item/weapon/storage/briefcase/crimekit(src)
+		new /obj/item/ammo_magazine/mg/cl32/rubber(src)
+		new /obj/item/ammo_magazine/mg/cl32/rubber(src)
 		return
 
-/obj/structure/closet/secure_closet/security/engine
-
-	New()
-		..()
-		new /obj/item/clothing/accessory/armband/engine(src)
-		new /obj/item/device/encryptionkey/headset_eng(src)
-		return
-
-/obj/structure/closet/secure_closet/security/science
-
-	New()
-		..()
-		new /obj/item/clothing/accessory/armband/science(src)
-		new /obj/item/device/encryptionkey/headset_sci(src)
-		return
-
-/obj/structure/closet/secure_closet/security/med
-
-	New()
-		..()
-		new /obj/item/clothing/accessory/armband/medgreen(src)
-		new /obj/item/device/encryptionkey/headset_med(src)
-		return
 
 
 /obj/structure/closet/secure_closet/detective
@@ -224,7 +226,7 @@
 		new /obj/item/clothing/gloves/thick(src)
 		new /obj/item/clothing/head/det(src)
 		new /obj/item/clothing/head/det/grey(src)
-		new /obj/item/clothing/shoes/laceup(src)
+		new /obj/item/clothing/shoes/reinforced(src)
 		new /obj/item/weapon/storage/box/evidence(src)
 		new /obj/item/device/radio/headset/headset_sec(src)
 		new /obj/item/clothing/suit/armor/vest/detective(src)

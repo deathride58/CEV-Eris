@@ -78,26 +78,21 @@
 		O.key = key
 
 	if(move)
-		var/obj/loc_landmark
-		for(var/obj/effect/landmark/start/sloc in landmarks_list)
-			if (sloc.name != "AI")
+		var/obj/new_location = null
+		for(var/turf/sloc in getSpawnLocations("AI"))
+			if(locate(/obj/structure/AIcore) in sloc)
 				continue
-			if ((locate(/mob/living) in sloc.loc) || (locate(/obj/structure/AIcore) in sloc.loc))
-				continue
-			loc_landmark = sloc
-		if (!loc_landmark)
-			for(var/obj/effect/landmark/tripai in landmarks_list)
-				if (tripai.name == "tripai")
-					if((locate(/mob/living) in tripai.loc) || (locate(/obj/structure/AIcore) in tripai.loc))
-						continue
-					loc_landmark = tripai
-		if (!loc_landmark)
+			new_location = sloc
+		if (!new_location)
+			for(var/turf/sloc in getSpawnLocations("triai"))
+				if(locate(/obj/structure/AIcore) in sloc)
+					continue
+				new_location = sloc
+		if (!new_location)
 			O << "Oh god sorry we can't find an unoccupied AI spawn location, so we're spawning you on top of someone."
-			for(var/obj/effect/landmark/start/sloc in landmarks_list)
-				if (sloc.name == "AI")
-					loc_landmark = sloc
+			new_location = pickSpawnLocation("AI", FALSE)
 
-		O.loc = loc_landmark.loc
+		O.forceMove(new_location)
 
 	O.on_mob_init()
 
