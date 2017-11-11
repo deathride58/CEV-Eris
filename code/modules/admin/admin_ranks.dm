@@ -101,7 +101,9 @@ var/list/admin_ranks = list() //list of all ranks with associated rights
 
 
 /hook/startup/proc/loadAdmins()
+	log_debug("Calling /hook/startup/proc/clear_admin_datums")
 	clear_admin_datums()
+	log_debut("Called /hook/startup/proc/clear_admin_datums")
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
@@ -111,7 +113,9 @@ var/list/admin_ranks = list() //list of all ranks with associated rights
 		return
 
 	else
+		log_debug("Calling /hook/startup/proc/load_admins")
 		load_admins()
+		log_debug("Called /hook/startup/proc/load_admins")
 
 		if(!admin_datums)
 			error("The database query in load_admins() resulted in no admins being added to the list. Reverting to legacy system.")
@@ -123,6 +127,7 @@ var/list/admin_ranks = list() //list of all ranks with associated rights
 /proc/load_admins()
 	var/DBQuery/query = dbcon.NewQuery("SELECT ckey, rank, flags FROM players WHERE rank != 'player'")
 	query.Execute()
+	log_debug("Executed query load_admins")
 	while(query.NextRow())
 		var/ckey = query.item[1]
 		var/rank = query.item[2]
