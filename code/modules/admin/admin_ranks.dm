@@ -103,7 +103,7 @@ var/list/admin_ranks = list() //list of all ranks with associated rights
 /hook/startup/proc/loadAdmins()
 	log_debug("Calling /hook/startup/proc/clear_admin_datums")
 	clear_admin_datums()
-	log_debut("Called /hook/startup/proc/clear_admin_datums")
+	log_debug("Called /hook/startup/proc/clear_admin_datums")
 
 	establish_db_connection()
 	if(!dbcon.IsConnected())
