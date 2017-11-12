@@ -388,13 +388,15 @@ datum/admins/proc/DB_ban_unban_by_id(var/id)
 			var/player_id
 			var/DBQuery/query = dbcon.NewQuery("SELECT id, FROM players WHERE ckey='[playerckey]'")
 			query.Execute()
-			if(query.NextRow())
+			while(query.NextRow())
+				log_debug("LOGGING: [query.length] - query length, [query.item[1]] - query item 1" )
 				player_id = query.item[1]
 
 			var/admin_id
 			query = dbcon.NewQuery("SELECT id FROM players WHERE ckey='[adminckey]'")
 			query.Execute()
-			if(query.NextRow())
+			while(query.NextRow())
+				log_debug("LOGGING: [query.length] - query length, [query.item[1]] - query item 1" )
 				admin_id = query.item[1]
 
 			var/adminsearch = ""
