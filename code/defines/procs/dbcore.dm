@@ -60,26 +60,33 @@ DBConnection/proc/Connect(dbi_handler=src.dbi, user_handler=src.user, password_h
 	cursor_handler = src.default_cursor
 	if(!cursor_handler)
 		cursor_handler = Default_Cursor
+	log_debug("DBConnection: Calling Connect proc")
 	return _dm_db_connect(_db_con, dbi_handler, user_handler, password_handler, cursor_handler, null)
 
 DBConnection/proc/Disconnect()
+	log_debug("DBConnection: Calling Disconnect proc")
 	return _dm_db_close(_db_con)
 
 DBConnection/proc/IsConnected()
+	log_debug("DBConnection: Calling IsConnected proc")
 	return _dm_db_is_connected(_db_con)
 
 DBConnection/proc/Quote(str)
+	log_debug("DBConnection: Calling Quote proc (argument [str])")
 	return _dm_db_quote(_db_con, str)
 
 DBConnection/proc/ErrorMsg()
+	log_debug("DBConnection: Calling ErrorMsg proc")
 	return _dm_db_error_msg(_db_con)
 
 DBConnection/proc/SelectDB(database_name, dbi)
+	log_debug("DBConnection: Calling SelectDb proc (arguments: database_name - [database_name], dbi - [dbi])")
 	if(IsConnected())
 		Disconnect()
 	return Connect("[dbi?"[dbi]":"dbi:mysql:[database_name]:[sqladdress]:[sqlport]"]", user, password)
 
 DBConnection/proc/NewQuery(sql_query, cursor_handler = src.default_cursor)
+	log_debug("DBConnection: Calling NewQuery proc (sql_query - [sql_query])")
 	return new/DBQuery(sql_query, src, cursor_handler)
 
 
@@ -91,6 +98,7 @@ DBQuery/New(sql_query, DBConnection/connection_handler, cursor_handler)
 	if(cursor_handler)
 		src.default_cursor = cursor_handler
 	_db_query = _dm_db_new_query()
+	log_debug("DBQuery: Called New proc (sql_query = [sql_query])")
 	return ..()
 
 
@@ -105,30 +113,38 @@ DBQuery
 	var/_db_query
 
 DBQuery/proc/Connect(DBConnection/connection_handler)
+	log_debug("DBQuery: Calling Connect proc")
 	src.db_connection = connection_handler
 
 DBQuery/proc/Execute(sql_query = src.sql, cursor_handler = default_cursor)
 	Close()
+	log_debug("DBQuery: Executing query: [sql_query]")
 	return _dm_db_execute(_db_query, sql_query, db_connection._db_con, cursor_handler, null)
 
 DBQuery/proc/NextRow()
+	log_debug("DBQuery: Calling NextRow proc")
 	return _dm_db_next_row(_db_query, item, conversions)
 
 DBQuery/proc/RowsAffected()
+	log_debug("DBQuery: Calling RowsAffected proc")
 	return _dm_db_rows_affected(_db_query)
 
 DBQuery/proc/RowCount()
+	log_debug("DBQuery: Calling RowCount proc")
 	return _dm_db_row_count(_db_query)
 
 DBQuery/proc/ErrorMsg()
+	log_debug("DBQuery: Calling ErrorMsg proc")
 	return _dm_db_error_msg(_db_query)
 
 DBQuery/proc/Columns()
 	if(!columns)
+		log_debug("DBQuery: Calling Columns proc")
 		columns = _dm_db_columns(_db_query, /DBColumn)
 	return columns
 
 DBQuery/proc/GetRowData()
+	log_debug("DBQuery: Calling GetRowData proc")
 	var/list/columns = Columns()
 	var/list/results
 	if(columns.len)
@@ -143,6 +159,7 @@ DBQuery/proc/Close()
 	item.len = 0
 	columns = null
 	conversions = null
+	log_debug("Calling Close proc")
 	return _dm_db_close(_db_query)
 
 DBQuery/proc/Quote(str)
@@ -175,6 +192,7 @@ DBColumn/New(name_handler, table_handler, position_handler, type_handler, flag_h
 	src.flags = flag_handler
 	src.length = length_handler
 	src.max_length = max_length_handler
+	log_debug("DBColumn: Calling New proc")
 	return ..()
 
 
