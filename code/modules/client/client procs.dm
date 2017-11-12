@@ -281,10 +281,9 @@
 	else
 		if(query.NextRow())
 			// client already registered so we fetch all needed data
-			query = dbcon.NewQuery("SELECT id, registered FROM players WHERE id = [src.id]")
+			query = dbcon.NewQuery("SELECT id, registered FROM players WHERE id = [query.item[1]")
 			query.Execute()
 			if(query.NextRow())
-				log_debug("client id - [query.item[1]], client.reg_date = [query.item[2]]")
 				src.id = query.item[1]
 				src.registration_date = query.item[2]
 				src.get_country()
