@@ -9,7 +9,7 @@
 #define LIGHTING_LAMBERTIAN     0    // Use lambertian shading for light sources.
 #define LIGHTING_HEIGHT         1    // Height off the ground of light sources on the pseudo-z-axis, you should probably leave this alone.
 
-#define LIGHTING_LAYER          10   // Drawing layer for lighting overlays.
+//#define LIGHTING_LAYER // Moved to code/__defines/_planes+layers.dm
 
 #define INVISIBILITY_LIGHTING   20
 
