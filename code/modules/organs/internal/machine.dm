@@ -1,17 +1,17 @@
-/obj/item/organ/cell
+/obj/item/organ/internal/cell
 	name = "microbattery"
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
-	organ_tag = "cell"
+	organ_tag = O_CELL
 	parent_organ = "chest"
 	vital = 1
 
-/obj/item/organ/cell/New()
+/obj/item/organ/internal/cell/New()
 	status |= ORGAN_ROBOT|ORGAN_ASSISTED
 	..()
 
-/obj/item/organ/cell/replaced()
+/obj/item/organ/internal/cell/replaced()
 	..()
 	// This is very ghetto way of rebooting an IPC. TODO better way.
 	if(owner && owner.stat == DEAD)
