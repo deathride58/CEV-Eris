@@ -5,7 +5,7 @@
 	power_usage = 30 //W
 	critical = 0
 	enabled = FALSE
-	var/brightness_power = 1
+	var/brightness_power = 0.5
 	var/brightness_range = 3
 	var/brightness_color = "#e5f3ff" //LEDs has slightly blue tint
 

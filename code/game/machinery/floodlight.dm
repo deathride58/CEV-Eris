@@ -11,7 +11,7 @@
 	var/unlocked = 0
 	var/open = 0
 	var/brightness_on = 8		//can't remember what the maxed out value is
-	light_power = 2
+	var/lightpower_on = 0.8
 
 /obj/machinery/floodlight/New()
 	src.cell = new(src)
@@ -33,10 +33,10 @@
 
 	// If the cell is almost empty rarely "flicker" the light. Aesthetic only.
 	if((cell.percent() < 10) && prob(5))
-		set_light(brightness_on/2, brightness_on/4)
+		set_light(brightness_on/2, lightpower_on/2)
 		spawn(20)
 			if(on)
-				set_light(brightness_on, brightness_on/2)
+				set_light(brightness_on, lightpower_on)
 
 	cell.use(use*CELLRATE)
 
@@ -49,7 +49,7 @@
 		return 0
 
 	on = 1
-	set_light(brightness_on, brightness_on / 2)
+	set_light(brightness_on, lightpower_on)
 	update_icon()
 	if(loud)
 		visible_message("\The [src] turns on.")

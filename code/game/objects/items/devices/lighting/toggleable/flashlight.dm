@@ -8,7 +8,7 @@
 	var/obj/effect/effect/light/light_spot
 
 	var/radiance_power = 0.8
-	var/light_spot_power = 2
+	var/light_spot_power = 0.8
 	var/light_spot_radius = 3
 
 	var/light_spot_range = 3
@@ -307,7 +307,7 @@
 	slot_flags = SLOT_EARS
 	radiance_power = 0.4
 	light_spot_radius = 2
-	light_spot_power = 2
+	light_spot_power = 0.6
 	light_spot_range = 1
 	w_class = ITEM_SIZE_TINY
 
@@ -316,9 +316,9 @@
 	desc = "A hand-held heavy-duty light."
 	icon_state = "heavyduty"
 	item_state = "heavyduty"
-	radiance_power = 1
+	radiance_power = 0.6
 	light_spot_radius = 4
-	light_spot_power = 3
+	light_spot_power = 0.8
 	light_spot_range = 4
 	tick_cost = 0.8
 	suitable_cell = /obj/item/weapon/cell/medium
@@ -329,4 +329,4 @@
 	icon_state = "seclite"
 	item_state = "seclite"
 	light_spot_radius = 3
-	light_spot_power = 2.5
+	light_spot_power = 0.9

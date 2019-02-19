@@ -173,8 +173,9 @@
 	var/on = 0					// 1 if on, 0 if off
 	var/on_gs = 0
 	var/brightness_range = 7	// luminosity when on, also used in power calculation
-	var/brightness_power = 2
-	var/brightness_color = COLOR_LIGHTING_DEFAULT_BRIGHT
+	var/brightness_power = 0.6
+	var/area_powermod = 1 //Set by the area
+	var/brightness_color = COLOR_LIGHTING_DEFAULT
 	var/status = LIGHT_OK		// LIGHT_OK, _EMPTY, _BURNED or _BROKEN
 	var/flickering = 0
 	var/light_type = /obj/item/weapon/light/tube		// the type of light item
@@ -198,7 +199,7 @@
 	base_state = "bulb"
 	fitting = "bulb"
 	brightness_range = 4
-	brightness_power = 2
+	brightness_power = 0.5
 	desc = "A small lighting fixture."
 	light_type = /obj/item/weapon/light/bulb
 
@@ -207,7 +208,7 @@
 	fitting = "large tube"
 	light_type = /obj/item/weapon/light/tube/large
 	brightness_range = 12
-	brightness_power = 4
+	brightness_power = 0.8
 
 /obj/machinery/light/built/New()
 	status = LIGHT_EMPTY
@@ -235,6 +236,8 @@
 	var/area/location = get_area(loc)
 	if(location.area_light_color)
 		brightness_color = location.area_light_color
+	if(location.area_light_powermod)
+		area_powermod = location.area_light_powermod
 
 	update(0)
 
@@ -289,11 +292,13 @@
 			atmosalarmed = 0
 
 			var/area/location = get_area(loc)
+			if(location.area_light_powermod)
+				area_powermod = location.area_light_powermod
 			if(location.area_light_color)
 				brightness_color = location.area_light_color
 
 			else
-				brightness_color = COLOR_LIGHTING_DEFAULT_BRIGHT
+				brightness_color = COLOR_LIGHTING_DEFAULT
 
 		update()
 
@@ -326,7 +331,7 @@
 					set_light(0)
 			else
 				use_power = 2
-				set_light(brightness_range, brightness_power, brightness_color)
+				set_light(brightness_range, brightness_power*area_powermod, brightness_color)
 	else
 		use_power = 1
 		set_light(0)
@@ -679,7 +684,7 @@
 	matter = list(MATERIAL_STEEL = 1)
 	var/rigged = 0		// true if rigged to explode
 	var/brightness_range = 2 //how much light it gives off
-	var/brightness_power = 1
+	var/brightness_power = 0.6
 	var/brightness_color = null
 
 /obj/item/weapon/light/tube
@@ -690,13 +695,13 @@
 	item_state = "c_tube"
 	matter = list(MATERIAL_GLASS = 1)
 	brightness_range = 8
-	brightness_power = 3
+	brightness_power = 0.6
 
 /obj/item/weapon/light/tube/large
 	w_class = ITEM_SIZE_SMALL
 	name = "large light tube"
 	brightness_range = 15
-	brightness_power = 4
+	brightness_power = 0.8
 
 /obj/item/weapon/light/bulb
 	name = "light bulb"
@@ -706,7 +711,7 @@
 	item_state = "contvapour"
 	matter = list(MATERIAL_GLASS = 1)
 	brightness_range = 5
-	brightness_power = 2
+	brightness_power = 0.5
 
 /obj/item/weapon/light/throw_impact(atom/hit_atom)
 	..()
@@ -720,7 +725,7 @@
 	item_state = "egg4"
 	matter = list(MATERIAL_GLASS = 1)
 	brightness_range = 5
-	brightness_power = 2
+	brightness_power = 0.5
 
 // update the icon state and description of the light
 

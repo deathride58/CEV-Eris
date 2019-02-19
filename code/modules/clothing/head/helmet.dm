@@ -134,6 +134,6 @@
 		set_light(0, 0)
 	else
 		icon_state = "light_riot_on"
-		set_light(2, 2, COLOR_LIGHTING_ORANGE_MACHINERY)
+		set_light(2, 0.8, COLOR_LIGHTING_ORANGE_MACHINERY)
 	update_wear_icon()
 	..()

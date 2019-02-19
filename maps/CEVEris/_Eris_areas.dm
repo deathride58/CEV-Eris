@@ -16,7 +16,8 @@
 	sound_env = TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	forced_ambience = list('sound/ambience/maintambience.ogg')
-	area_light_color = COLOR_LIGHTING_MAINT_DARK
+	area_light_color = COLOR_LIGHTING_MAINT
+	area_light_powermod = 0.8
 
 /area/eris/maintenance/disposal
 	name = "Waste Disposal"
@@ -263,6 +264,7 @@
 /area/eris/command
 	name = "\improper Command"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/command/bridge
 	name = "\improper Bridge"
@@ -401,6 +403,7 @@
 	name = "\improper Cryogenic Storage"
 	icon_state = "Sleep"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 	flags = AREA_FLAG_CRITICAL | AREA_FLAG_RAD_SHIELDED
 
 /area/eris/crew_quarters/sleep_male
@@ -525,6 +528,7 @@
 	name = "\improper Engineering"
 	icon_state = "engineering"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/engineering/gravity_generator
 	name = "Gravity Generator Room"
@@ -593,6 +597,7 @@
 	name = "\improper Engineering Storage"
 	icon_state = "engineering_storage"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/engineering/break_room
 	name = "\improper Engineering Break Room"
@@ -603,6 +608,7 @@
 	name = "\improper Engine EVA"
 	icon_state = "engine_eva"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/engineering/locker_room
 	name = "\improper Engineering Locker Room"
@@ -620,11 +626,13 @@
 	name = "Wasting Room"
 	icon_state = "erisred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/engineering/post
 	name = "Engineering Post"
 	icon_state = "erisred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/engineering/wastingroom
 	name = "Wasting Room"
@@ -654,6 +662,7 @@
 	name = "Engineering E.V.A. Storage"
 	icon_state = "erisblue"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/engineering/construction
 	name = "\improper Engineering Construction Area"
@@ -677,6 +686,7 @@
 	name = "\improper Medical"
 	icon_state = "erisgreen"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/medical/medbay
 	name = "\improper Medbay"
@@ -805,11 +815,13 @@
 	name = "Chemical Storage"
 	icon_state = "erisblue"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/medical/medeva
 	name = "Medical E.V.A. Storage"
 	icon_state = "erisblue"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/medical/medbay/iso
 	name = "Isolation Wing"
@@ -828,6 +840,7 @@
 	name = "Security"
 	icon_state = "security"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/security/main
 	name = "\improper Security Office"
@@ -939,6 +952,7 @@
 	name = "Evidence Storage"
 	icon_state = "hammerred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/security/armory
 	name = "Armory"
@@ -948,6 +962,7 @@
 	name = "Executive Rooms"
 	icon_state = "hammerred"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/security/maintpost
 	name = "Maintenance Post"
@@ -963,6 +978,7 @@
 	name = "\improper Merchants"
 	icon_state = "quart"
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/quartermaster/office
 	name = "\improper Cargo Office"
@@ -995,6 +1011,7 @@
 
 /area/eris/rnd
 	area_light_color = COLOR_LIGHTING_SCI_BRIGHT
+	area_light_powermod = 1.2
 
 /area/eris/rnd/research
 	name = "\improper Research and Development"
@@ -1044,6 +1061,7 @@
 	name = "\improper Toxins Storage"
 	icon_state = "toxstorage"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/rnd/mixing
 	name = "\improper Toxins Mixing Room"
@@ -1053,6 +1071,7 @@
 	name = "\improper Miscellaneous Research"
 	icon_state = "toxmisc"
 	area_light_color = COLOR_LIGHTING_SCI_DARK
+	area_light_powermod = 0.75
 
 /area/eris/rnd/server
 	name = "\improper Server Room"

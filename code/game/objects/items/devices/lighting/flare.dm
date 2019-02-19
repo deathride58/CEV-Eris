@@ -2,7 +2,7 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'pull cord, make light'."
 	brightness_on = 4 // Pretty bright.
-	light_power = 2
+	light_power = 0.9
 	color = null
 	light_color = COLOR_LIGHTING_RED_BRIGHT
 	icon_state = "flare"

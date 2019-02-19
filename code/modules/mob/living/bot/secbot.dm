@@ -70,7 +70,7 @@
 		icon_state = "secbot[on]"
 
 	if(on)
-		set_light(2, 1, "#FF6A00")
+		set_light(2, 0.8, "#FF6A00")
 	else
 		set_light(0)
 	..()

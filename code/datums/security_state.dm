@@ -137,8 +137,7 @@
 
 	// These values are primarily for station alarms and status displays, and which light colors and overlays to use
 	var/light_max_bright = 0.5
-	var/light_inner_range = 0.1
-	var/light_outer_range = 1
+	var/light_alarm_range = 1.4
 	var/light_color_alarm
 	var/light_color_status_display
 
@@ -197,8 +196,7 @@
 	name = "code green"
 
 	light_max_bright = 0.25
-	light_inner_range = 0.1
-	light_outer_range = 1
+	light_alarm_range = 1.4
 
 	light_color_alarm = COLOR_LIGHTING_GREEN_MACHINERY
 	light_color_status_display = COLOR_LIGHTING_GREEN_MACHINERY
@@ -214,8 +212,7 @@
 	name = "code blue"
 
 	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
+	light_alarm_range = 2
 	light_color_alarm = COLOR_LIGHTING_BLUE_MACHINERY
 	light_color_status_display = COLOR_LIGHTING_BLUE_MACHINERY
 
@@ -231,8 +228,7 @@
 	name = "code red"
 
 	light_max_bright = 0.5
-	light_inner_range = 0.1
-	light_outer_range = 2
+	light_alarm_range = 2
 	light_color_alarm = COLOR_LIGHTING_RED_MACHINERY
 	light_color_status_display = COLOR_LIGHTING_RED_MACHINERY
 
@@ -248,8 +244,7 @@
 	name = "code delta"
 
 	light_max_bright = 0.75
-	light_inner_range = 0.1
-	light_outer_range = 3
+	light_alarm_range = 3
 	light_color_alarm = COLOR_LIGHTING_RED_MACHINERY
 	light_color_status_display = COLOR_LIGHTING_BLUE_MACHINERY
 

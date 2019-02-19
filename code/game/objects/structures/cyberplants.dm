@@ -4,6 +4,7 @@
 	icon = 'icons/obj/cyberplants.dmi'
 	icon_state = "holopot"
 	var/brightness_on = 4
+	var/lightpower_on = 0.6
 	var/emaged = FALSE
 	var/interference = FALSE
 	var/icon/plant = null
@@ -34,7 +35,7 @@
 
 	update_icon()
 
-	set_light(brightness_on, brightness_on/2)
+	set_light(brightness_on, lightpower_on)
 
 /obj/structure/cyberplant/update_icon()
 	..()
@@ -99,7 +100,7 @@
 				return
 
 			overlays += plant
-			set_light(brightness_on, brightness_on/2)
+			set_light(brightness_on, lightpower_on)
 			sleep(3)
 			if (QDELETED(src))
 				return
@@ -111,7 +112,7 @@
 				return
 
 			change_color()
-			set_light(brightness_on, brightness_on/2)
+			set_light(brightness_on, lightpower_on)
 			update_icon()
 
 			interference = FALSE

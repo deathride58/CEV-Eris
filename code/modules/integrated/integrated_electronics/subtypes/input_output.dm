@@ -493,7 +493,7 @@
 
 /obj/item/integrated_circuit/output/light/proc/update_lighting()
 	if(light_toggled)
-		set_light(l_range = light_brightness, l_power = light_brightness, l_color = light_rgb)
+		set_light(l_range = light_brightness, l_power = (light_brightness*0.12+0.2), l_color = light_rgb)
 	else
 		set_light(0)
 	power_draw_idle = light_toggled ? light_brightness * 2 : 0
@@ -700,7 +700,7 @@
 		text_output += "\an [name]"
 	else
 		text_output += "\an ["\improper[initial_name]"] labeled '[name]'"
-	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>¤</font>" : "unlit."]"
+	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>ï¿½</font>" : "unlit."]"
 	user << jointext(text_output,null)
 
 /obj/item/integrated_circuit/output/led/red

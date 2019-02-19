@@ -264,7 +264,7 @@
 	if (occ["virus_present"])
 		dat += "<font color='red'>Viral pathogen detected in blood stream.</font><br>"
 	dat += text("[]\t-Brute Damage %: []</font><br>", ("<font color='[occ["bruteloss"] < 60  ? "blue" : "red"]'>"), occ["bruteloss"])
-	dat += text("[]\t-Respiratory Damage %: []</font><br>", ("<font color='[occ["oxyloss"] < 60  ? "blue'" : "red"]'>"), occ["oxyloss"])
+	dat += text("[]\t-Respiratory Damage %: []</font><br>", ("<font color='[occ["oxyloss"] < 60  ? "blue" : "red"]'>"), occ["oxyloss"])
 	dat += text("[]\t-Toxin Content %: []</font><br>", ("<font color='[occ["toxloss"] < 60  ? "blue" : "red"]'>"), occ["toxloss"])
 	dat += text("[]\t-Burn Severity %: []</font><br><br>", ("<font color='[occ["fireloss"] < 60  ? "blue" : "red"]'>"), occ["fireloss"])
 
@@ -412,16 +412,16 @@
 		if(occupant)
 			if(occupant.health>=100)
 				icon_state = "scanner_green"
-				set_light(l_range = 1.5, l_power = 2, l_color = COLOR_LIME)
+				set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_LIME)
 			else if(occupant.health>=0)
 				icon_state = "scanner_yellow"
-				set_light(l_range = 1.5, l_power = 2, l_color = COLOR_YELLOW)
+				set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_YELLOW)
 			else if(occupant.health>=-90)
 				icon_state = "scanner_red"
-				set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+				set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_RED)
 			else
 				icon_state = "scanner_death"
-				set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+				set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_RED)
 		else
 			icon_state = "scanner_open"
 			set_light(0)
@@ -435,16 +435,16 @@
 			if(connected.occupant)
 				if(connected.occupant.health>=100)
 					icon_state = "scanner_terminal_green"
-					set_light(l_range = 1.5, l_power = 2, l_color = COLOR_LIME)
+					set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_LIME)
 				else if(connected.occupant.health>=-90)
 					icon_state = "scanner_terminal_red"
-					set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+					set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_RED)
 				else
 					icon_state = "scanner_terminal_dead"
-					set_light(l_range = 1.5, l_power = 2, l_color = COLOR_RED)
+					set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_RED)
 			else
 				icon_state = "scanner_terminal_blue"
-				set_light(l_range = 1.5, l_power = 2, l_color = COLOR_BLUE)
+				set_light(l_range = 1.5, l_power = 0.8, l_color = COLOR_BLUE)
 		else
 			icon_state = "scanner_terminal_off"
 			set_light(0)

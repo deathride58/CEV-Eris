@@ -253,9 +253,9 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 		hologram.name = "[A.name] (Hologram)"//If someone decides to right click.
 		A.holo = src
 		masters[A] = hologram
-	hologram.set_light(2, 2, "#00CCFF")	//hologram lighting
+	hologram.set_light(2, 0.8, "#00CCFF")	//hologram lighting
 	hologram.color = color //painted holopad gives coloured holograms
-	set_light(2, 2, COLOR_LIGHTING_BLUE_BRIGHT)			//pad lighting
+	set_light(2, 0.8, COLOR_LIGHTING_BLUE_BRIGHT)			//pad lighting
 	icon_state = "holopad1"
 	return 1
 

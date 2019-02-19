@@ -195,7 +195,7 @@
 	icon_state = "eshield[active]"
 	update_wear_icon()
 	if(active)
-		set_light(1.5, 1.5, COLOR_LIGHTING_BLUE_BRIGHT)
+		set_light(1.5, 0.6, COLOR_LIGHTING_BLUE_BRIGHT)
 	else
 		set_light(0)
 

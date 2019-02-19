@@ -26,7 +26,7 @@
 		icon_state = "off"
 		set_light(0)
 		return
-	var/new_color = COLOR_LIGHTING_DEFAULT_BRIGHT
+	var/new_color = COLOR_LIGHTING_DEFAULT
 	if(stat & BROKEN)
 		icon_state = "glitch"
 		new_color = COLOR_LIGHTING_SCI_BRIGHT
@@ -38,7 +38,7 @@
 		else if(icon_state in postertypes)
 			new_color = postertypes[icon_state]
 
-	set_light(l_range = 2, l_power = 2, l_color = new_color)
+	set_light(l_range = 2, l_power = 0.6, l_color = new_color)
 
 /obj/machinery/holoposter/proc/set_rand_sprite()
     icon_state = pick(postertypes)

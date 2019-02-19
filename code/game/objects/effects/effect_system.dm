@@ -250,7 +250,7 @@ steam.start() -- spawns the effect
 	mouse_opacity = FALSE
 	icon_state = "nothing"
 	var/radius = 3
-	var/brightness = 2
+	var/brightness = 0.9
 
 /obj/effect/effect/light/New(var/newloc, var/radius, var/brightness)
 	..()
